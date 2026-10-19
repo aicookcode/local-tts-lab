@@ -31,3 +31,6 @@ installed-dependencies.txt
 .env
 .env.*
 !.env.example
+
+# Public demonstration references only; personal audio remains ignored.
+!samples/*.wav

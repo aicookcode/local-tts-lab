@@ -1,7 +1,7 @@
 {
   "qwen-primary": {
     "engine": "qwen",
-    "reference": "profiles/aicookcode-local-tuned/calm-7s.wav",
+    "reference": "samples/qwen-reference.wav",
     "seed": 20261017,
     "temperature": 0.95,
     "top_p": 0.95,
@@ -12,13 +12,12 @@
     "default_speed": 0.95,
     "role": "primary",
     "label": "首选：对话舒缓",
-    "selection": "User chose Qwen dialogue; slightly slower requested",
-    "base_sample": "Q4-conversational.wav"
+    "reference_text": "samples/reference.txt"
   },
   "zip-identity-distill": {
     "engine": "zipvoice",
-    "reference": "profiles/aicookcode-zip-identity/reference.wav",
-    "reference_text": "profiles/aicookcode-zip-identity/reference.txt",
+    "reference": "samples/zipvoice-reference.wav",
+    "reference_text": "samples/reference.txt",
     "model_directory": "candidates/zipvoice-fp32/sherpa-onnx-zipvoice-distill-fp32-zh-en-emilia",
     "steps": 16,
     "guidance_scale": 3.0,
@@ -30,9 +29,6 @@
     "default_speed": 0.98,
     "threads": 6,
     "role": "approved_backup",
-    "label": "备选：完整句参考 A",
-    "target": "original approved aicookcode recording",
-    "accepted_at": "2026-10-17T19:39:54.105110+08:00",
-    "acceptance": "用户明确选择新版 A：完整句参考，作为备选。"
+    "label": "备选：完整句参考 A"
   }
 }

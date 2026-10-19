@@ -24,7 +24,7 @@ class VoiceApp:
         self.status=tk.StringVar(value='正在载入音色库……')
         ttk.Label(outer,textvariable=self.status,wraplength=860).pack(anchor='w',pady=(12,4))
         app.protocol('WM_DELETE_WINDOW',self.close);app.after(150,self.poll)
-        if bootstrap:self.background(store.bootstrap,lambda _:self.refresh_voices(),'正在导入已有已认可音色，不重新处理原参考……')
+        if bootstrap:self.reload_voices()
         else:self.refresh_voices()
 
     def button(self,parent,text,command,**pack):
@@ -35,7 +35,7 @@ class VoiceApp:
         ttk.Label(p,text='已保存音色：',font=('Microsoft YaHei',11,'bold')).pack(anchor='w')
         bar=ttk.Frame(p);bar.pack(fill='x',pady=(5,8));self.voice_var=tk.StringVar()
         self.voice_box=ttk.Combobox(bar,textvariable=self.voice_var,state='readonly');self.voice_box.pack(side='left',fill='x',expand=True)
-        self.voice_box.bind('<<ComboboxSelected>>',self.voice_changed);self.button(bar,'刷新',self.refresh_voices,side='left',padx=(8,0))
+        self.voice_box.bind('<<ComboboxSelected>>',self.voice_changed);self.button(bar,'刷新',self.reload_voices,side='left',padx=(8,0))
         self.info_var=tk.StringVar();ttk.Label(p,textvariable=self.info_var,wraplength=820,foreground='#365e52').pack(anchor='w')
         actions=ttk.Frame(p);actions.pack(fill='x',pady=(10,10))
         for label,handler in [('播放参考',self.play_reference),('查看档案',self.open_profile),('设为默认',self.set_default),('导出备份',self.export_voice),('导入备份',self.import_voice)]:
@@ -112,6 +112,9 @@ class VoiceApp:
         if self.voice_var.get() not in self.voices:raise ValueError('请先选择已保存音色。')
         return self.voices[self.voice_var.get()]['id']
 
+    def reload_voices(self):
+        self.background(store.bootstrap,lambda _:self.refresh_voices(),'正在载入音色库和已安装模型的预设样本……')
+
     def refresh_voices(self,prefer=None):
         if not isinstance(prefer,str):prefer=None
         try:old=self.current_id()
@@ -126,7 +129,9 @@ class VoiceApp:
             default=' · 默认音色' if store.index()['default_id']==vid else '';license_note=' · 仅非商业测试' if p['engine']=='zipvoice' else ''
             self.info_var.set(f"已锁定：{p['engine']} / 语速 {cfg.get('default_speed',1):.2f} / 参考 {p['reference_info']['seconds']:.2f}秒{default}{license_note}\n参考、转写和参数随档案保存；生成前校验关键模型与运行器文件。")
             self.status.set('已载入固定音色。新稿只需更换正文。')
-        except Exception as e:self.info_var.set(str(e));self.status.set('音色未就绪：'+str(e))
+        except Exception as e:
+            hint=str(e) if self.voices else '暂无可用音色。请先安装模型后点击刷新，或在“克隆与音色库”导入自己的参考录音。'
+            self.info_var.set(hint);self.status.set('音色未就绪：'+hint)
         self.update_buttons()
 
     def update_buttons(self):

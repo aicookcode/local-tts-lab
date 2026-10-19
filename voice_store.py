@@ -290,7 +290,7 @@ def bootstrap(library=LIBRARY):
         if key not in presets or any(v.get('builtin_key') == key for v in list_voices(library)):
             continue
         cfg = presets[key]
-        # Source-only distributions do not include personal reference recordings.
+        # Skip unavailable references and engines that have not been installed yet.
         if not (ROOT / cfg['reference']).is_file():
             continue
         if cfg.get('reference_text') and not (ROOT / cfg['reference_text']).is_file():
@@ -300,9 +300,9 @@ def bootstrap(library=LIBRARY):
         except FileNotFoundError:
             continue
         txt = (ROOT / cfg['reference_text']).read_text(encoding='utf-8') if cfg.get('reference_text') else ''
-        create_voice('aicookcode · ' + ('Qwen 首选' if engine == 'qwen' else 'ZipVoice 备选 A'),
-                     engine, ROOT / cfg['reference'], txt, cfg, copy_exact=True, accepted=True,
-                     tags='aicookcode,已认可', note='从已有已认可预设原样导入，未重新截取或处理参考。',
+        create_voice('预设样本 · ' + ('Qwen' if engine == 'qwen' else 'ZipVoice（非商业测试）'),
+                     engine, ROOT / cfg['reference'], txt, cfg, copy_exact=True, accepted=False,
+                     tags='预设样本,待试听', note='随工具提供的演示参考；请生成新文字试听后自行确认。',
                      library=library, builtin_key=key)
     return list_voices(library)
 
