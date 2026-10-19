@@ -1,0 +1,10 @@
+{
+  "candidates/qwen06-llamacpp/model.gguf": "59b28b4ab6a1c4e24e6701fc871a427c1fb3e8333f0ed5cebec3bb67a699ae8e",
+  "candidates/qwen06-llamacpp/mmproj.gguf": "202c1fbf3a0f00b7586ca45b8328d696cc6cd980c3798979eaa4fefe8efd8320",
+  "candidates/qwen06-llamacpp/runtime/llama-tts.exe": "9ce5c3715e58b12a86359f8bb2504b582c444564583cc0630cd8742e93305cca",
+  "candidates/zipvoice-fp32/sherpa-onnx-zipvoice-distill-fp32-zh-en-emilia/encoder.onnx": "495eca2d5f8a911f5c361bcce5bd55cdd2508ccdd26ce3e9bf1d3c29eb974861",
+  "candidates/zipvoice-fp32/sherpa-onnx-zipvoice-distill-fp32-zh-en-emilia/decoder.onnx": "4510d4f5f049f14ef80207fca695e13c820e2cea61635f402954950bc62b1e3c",
+  "candidates/zipvoice-fp32/sherpa-onnx-zipvoice-distill-fp32-zh-en-emilia/tokens.txt": "ce98c1afc5f7a20c2484dffdd68a1fff0a4a2cc707328833750c4476c37cdbda",
+  "candidates/zipvoice-fp32/sherpa-onnx-zipvoice-distill-fp32-zh-en-emilia/lexicon.txt": "c94b049d970e971acdc2a7e5e7b23ca594222a9d640e417c711f2ad1e7bb7d46",
+  "candidates/zipvoice-int8/vocos_24khz.onnx": "bcb3b970e384161c4d634f0bb9e999ff1c471b34c9bc0b1049a5014065ed3cc0"
+}

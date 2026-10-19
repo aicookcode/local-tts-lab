@@ -1,0 +1,33 @@
+# Local environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+# Downloaded models and native tools
+candidates/
+_downloads/
+bin/
+*.gguf
+*.onnx
+*.safetensors
+*.pt
+*.pth
+*.zip
+*.tar*
+*.part
+# Generated audio, local references and voice identities
+outputs/
+profiles/
+voice_library/
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.ogg
+*.log
+installation-ok.json
+installed-dependencies.txt
+# Local secrets
+.env
+.env.*
+!.env.example

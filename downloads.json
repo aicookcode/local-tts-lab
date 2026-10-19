@@ -1,0 +1,37 @@
+[
+  {
+    "name": "runtime.zip",
+    "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11707/llama-b11707-bin-win-cpu-x64.zip",
+    "bytes": 19610948,
+    "sha256": "6b8d912796b6904771835d234f842e31e86d5e60da25555f9568d3bc88117bb9",
+    "relative": "candidates/qwen06-llamacpp/runtime.zip"
+  },
+  {
+    "name": "model.gguf",
+    "url": "https://huggingface.co/mradermacher/Qwen3-TTS-12Hz-0.6B-Base-GGUF/resolve/0762b31e9cd99274d49dca4e895bd81863134f08/Qwen3-TTS-12Hz-0.6B-Base.Q8_0.gguf",
+    "bytes": 646211264,
+    "sha256": "59b28b4ab6a1c4e24e6701fc871a427c1fb3e8333f0ed5cebec3bb67a699ae8e",
+    "relative": "candidates/qwen06-llamacpp/model.gguf"
+  },
+  {
+    "name": "mmproj.gguf",
+    "url": "https://huggingface.co/mradermacher/Qwen3-TTS-12Hz-0.6B-Base-GGUF/resolve/0762b31e9cd99274d49dca4e895bd81863134f08/Qwen3-TTS-12Hz-0.6B-Base.mmproj-Q8_0.gguf",
+    "bytes": 401129632,
+    "sha256": "202c1fbf3a0f00b7586ca45b8328d696cc6cd980c3798979eaa4fefe8efd8320",
+    "relative": "candidates/qwen06-llamacpp/mmproj.gguf"
+  },
+  {
+    "name": "zip-fp32.tar.bz2",
+    "relative": "_downloads/zip-fp32.tar.bz2",
+    "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/sherpa-onnx-zipvoice-distill-fp32-zh-en-emilia.tar.bz2",
+    "sha256": "3b6729d03bf4ba64deeec113048bdbbe55dbc30580b609be76342e0099fd23a8",
+    "bytes": 477800463
+  },
+  {
+    "name": "vocos_24khz.onnx",
+    "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos_24khz.onnx",
+    "bytes": 54157409,
+    "sha256": "bcb3b970e384161c4d634f0bb9e999ff1c471b34c9bc0b1049a5014065ed3cc0",
+    "relative": "candidates/zipvoice-int8/vocos_24khz.onnx"
+  }
+]
